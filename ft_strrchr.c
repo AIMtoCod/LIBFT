@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 16:56:41 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/21 10:05:20 by hkumbhan         ###   ########.fr       */
+/*   Created: 2023/03/21 14:51:34 by hkumbhan          #+#    #+#             */
+/*   Updated: 2023/03/21 17:39:44 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 #include <stdio.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	srclen;
-	size_t	i;
+	char	*ptr;
 
-	i = 0;
-	srclen = ft_strlen(src);
-	if (size == 0)
-		return (srclen);
-	while ((src[i] != '\0') && i < size - 1)
+	ptr = 0;
+	if (*s == (char) c)
+		ptr = (char *)s;
+	while (*s++)
 	{
-		dst[i] = src[i];
-		i++;
+		if (*s == (char)c)
+			ptr = (char *)s;
 	}
-	dst[i] = '\0';
-	return (srclen);
+	return (ptr);
 }
 
-/*
-int	main()
-{
-	char	src[10] = "H";
-	char	dest[5];
-
-	printf("%lu", ft_strlcpy(dest, src, 1));
-}
-*/
+//int main()
+//{
+//	printf("%s\n", ft_strrchr("Harsh i Smart", 'a'));
+//}

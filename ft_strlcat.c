@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:42:33 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/20 18:33:29 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/03/21 11:06:54 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,24 @@
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	j;
-	size_t	z;
+	size_t	dstlen;
+	size_t	srclen;
 
-	i = ft_strlen(dst);
-	j = 0;
-	z = ft_strlen(dst);
-	while (src && dst && i < size - 1)
+	i = 0;
+	dstlen = ft_strlen(dst);
+	srclen = ft_strlen(src);
+	if (size <= dstlen)
+		return (size + srclen);
+	while (src[i] != '\0' && (i < size - dstlen - 1))
 	{
-		dst[i] = src[j];
+		dst[dstlen + i] = src[i];
 		i++;
-		j++;
 	}
-	dst[i] = '\0';
-	return (ft_strlen(src) + z);
+	dst[dstlen + i] = '\0';
+	return (dstlen + srclen);
 }
 
+/*
 int	main()
 {
 	char	src[15] = "take My horse!";
@@ -48,3 +50,4 @@ int	main()
 	printf("%s\n", dest2);
 	
 }
+*/

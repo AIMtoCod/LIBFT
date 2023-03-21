@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 16:56:41 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/21 10:05:20 by hkumbhan         ###   ########.fr       */
+/*   Created: 2023/03/21 19:30:50 by hkumbhan          #+#    #+#             */
+/*   Updated: 2023/03/21 19:56:36 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "libft.h"
-#include <stdio.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	srclen;
-	size_t	i;
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
 	i = 0;
-	srclen = ft_strlen(src);
-	if (size == 0)
-		return (srclen);
-	while ((src[i] != '\0') && i < size - 1)
+	if (!s1 && !s2)
+		return (0);
+	while (i < n)
 	{
-		dst[i] = src[i];
+		if (str1[i] != str2[i])
+			return (str2 - str1);
 		i++;
 	}
-	dst[i] = '\0';
-	return (srclen);
+	return (0);
 }
-
-/*
-int	main()
-{
-	char	src[10] = "H";
-	char	dest[5];
-
-	printf("%lu", ft_strlcpy(dest, src, 1));
-}
-*/

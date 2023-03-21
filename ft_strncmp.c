@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 16:56:41 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/21 10:05:20 by hkumbhan         ###   ########.fr       */
+/*   Created: 2023/03/21 17:44:52 by hkumbhan          #+#    #+#             */
+/*   Updated: 2023/03/21 19:44:07 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "libft.h"
-#include <stdio.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	srclen;
 	size_t	i;
 
 	i = 0;
-	srclen = ft_strlen(src);
-	if (size == 0)
-		return (srclen);
-	while ((src[i] != '\0') && i < size - 1)
+	while (i < n && (s1[i] || s2[i])) 
 	{
-		dst[i] = src[i];
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
-	dst[i] = '\0';
-	return (srclen);
+	return (0);
 }
 
-/*
-int	main()
-{
-	char	src[10] = "H";
-	char	dest[5];
+//#include <stdio.h>
 
-	printf("%lu", ft_strlcpy(dest, src, 1));
-}
-*/
+//int	main()
+//{
+//	printf("%d", ft_strncmp("Hello", "hello", 2));
+//}

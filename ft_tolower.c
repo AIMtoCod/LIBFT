@@ -1,43 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 16:56:41 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/21 10:05:20 by hkumbhan         ###   ########.fr       */
+/*   Created: 2023/03/21 12:03:33 by hkumbhan          #+#    #+#             */
+/*   Updated: 2023/03/21 12:06:17 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "libft.h"
-#include <stdio.h>
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int	ft_tolower(int c)
 {
-	size_t	srclen;
-	size_t	i;
-
-	i = 0;
-	srclen = ft_strlen(src);
-	if (size == 0)
-		return (srclen);
-	while ((src[i] != '\0') && i < size - 1)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (srclen);
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	return (c);
 }
 
 /*
-int	main()
-{
-	char	src[10] = "H";
-	char	dest[5];
+#include <stdio.h>
+#include <ctype.h>
 
-	printf("%lu", ft_strlcpy(dest, src, 1));
+int main()
+{
+	printf("%c\n", ft_tolower('G'));
+	printf("%c\n", tolower('K'));
+	printf("%c\n", ft_tolower('K'));
+	printf("%c\n", ft_tolower('k'));
+	printf("%c\n", tolower('1'));
 }
 */
