@@ -6,11 +6,11 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 09:31:50 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/21 17:44:41 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/03/23 09:50:41 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

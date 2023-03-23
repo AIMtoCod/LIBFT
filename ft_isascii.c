@@ -6,13 +6,13 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:05:50 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/17 18:24:10 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/03/23 09:50:19 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	if (c >= 0 || c <= 127)
+	if (c >= 0 && c <= 127)
 		return (1);
 	else
 		return (0);

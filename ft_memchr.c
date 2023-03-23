@@ -1,42 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 16:56:41 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/23 09:51:18 by hkumbhan         ###   ########.fr       */
+/*   Created: 2023/03/22 09:09:09 by hkumbhan          #+#    #+#             */
+/*   Updated: 2023/03/23 09:50:32 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	srclen;
-	size_t	i;
+	char	*str;
 
-	i = 0;
-	srclen = ft_strlen(src);
-	if (size == 0)
-		return (srclen);
-	while ((src[i] != '\0') && i < size - 1)
+	str = (char *)s;
+	if (n != 0)
 	{
-		dst[i] = src[i];
-		i++;
+		while (n != 0)
+		{
+			if (*str == (char) c)
+				return (str);
+			str++;
+			n--;
+		}
 	}
-	dst[i] = '\0';
-	return (srclen);
+	return (0);
 }
 
 /*
+#include <string.h>
+
 int	main()
 {
-	char	src[10] = "H";
-	char	dest[5];
-
-	printf("%lu", ft_strlcpy(dest, src, 1));
+	printf("%s \n", ft_memchr("Mango apple Pineapple", '\0', 0));
+	printf("%s \n", memchr("Mango apple Pineapple", '\0', 0));
+	return (0);
 }
 */

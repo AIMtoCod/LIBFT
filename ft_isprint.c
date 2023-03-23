@@ -6,14 +6,13 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:10:40 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/17 18:12:25 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/03/21 09:21:46 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	if (c >= '!' || c <= '~')
+	if (c >= ' ' && c <= '~')
 		return (1);
-	else
-		return (0);
+	return (0);
 }

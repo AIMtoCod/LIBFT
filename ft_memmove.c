@@ -6,12 +6,12 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 12:21:25 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/20 16:53:44 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/03/23 09:50:57 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 /*
 void	*ft_memmove(void *dst, const void *src, size_t len)

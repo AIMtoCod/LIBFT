@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 16:56:41 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/23 09:51:18 by hkumbhan         ###   ########.fr       */
+/*   Created: 2023/03/23 13:16:27 by hkumbhan          #+#    #+#             */
+/*   Updated: 2023/03/23 14:59:33 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	srclen;
-	size_t	i;
+	void	*ptr;
 
-	i = 0;
-	srclen = ft_strlen(src);
-	if (size == 0)
-		return (srclen);
-	while ((src[i] != '\0') && i < size - 1)
+	if (size == 0 || count == 0)
 	{
-		dst[i] = src[i];
-		i++;
+		size = 1;
+		count = 1;
 	}
-	dst[i] = '\0';
-	return (srclen);
+	ptr = malloc(count * size);
+	if (ptr)
+		ft_bzero(ptr, count * size);
+	return (ptr);
 }
 
 /*
-int	main()
-{
-	char	src[10] = "H";
-	char	dest[5];
+//#include <stdio.h>
 
-	printf("%lu", ft_strlcpy(dest, src, 1));
-}
+//int	main()
+//{
+//	int	*str = (int *)ft_calloc(6, sizeof(char));
+//	//str = "Harsh";
+//	int	i = 0;
+//	while (i < 6)
+//	{
+//		str[i] = 2;
+//		printf("%d\n", str[i]);
+//		i++;		
+//	}
+//	free (str);
+//}
 */

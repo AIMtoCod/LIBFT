@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 16:56:41 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/23 09:51:18 by hkumbhan         ###   ########.fr       */
+/*   Created: 2023/03/23 15:00:23 by hkumbhan          #+#    #+#             */
+/*   Updated: 2023/03/23 15:40:20 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+#include <string.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strdup(const char *s1)
 {
-	size_t	srclen;
-	size_t	i;
+	int		len;
+	char	*str;
 
-	i = 0;
-	srclen = ft_strlen(src);
-	if (size == 0)
-		return (srclen);
-	while ((src[i] != '\0') && i < size - 1)
+	len = ft_strlen(s1) + 1;
+	str = (char *)malloc(len);
+	if (str)
 	{
-		dst[i] = src[i];
-		i++;
+		ft_memcpy(str, s1, len);
 	}
-	dst[i] = '\0';
-	return (srclen);
+	return (str);
 }
 
 /*
-int	main()
+int main()
 {
-	char	src[10] = "H";
-	char	dest[5];
-
-	printf("%lu", ft_strlcpy(dest, src, 1));
+	printf("%s\n", strdup("Albina is not smart!"));
+	printf("%s\n", ft_strdup("Albina is not smart!"));
+	printf("%lu\n", strlen("Albina is not smart!"));
+	printf("%lu\n", ft_strlen("Albina is not smart!"));
 }
 */

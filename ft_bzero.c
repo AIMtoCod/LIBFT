@@ -6,13 +6,12 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 14:31:13 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/20 17:23:14 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/03/23 13:31:12 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
-#include <stdio.h>
+
 /*
 void	ft_bzero(void *s, size_t n)
 {
@@ -27,14 +26,15 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-*/
 
+*/
 void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(s, '0', n);
+	ft_memset(s, 0, n);
 }
 
 /*
+#include <stdio.h>
 int	main()
 {
 	char	str[50] = "Have a good day!";
