@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 09:45:58 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/22 14:44:58 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/03/27 09:02:21 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 /*
 int main()
 {
-	printf("%s \n", strnstr("A", "A", 2));
+	printf("%s \n", strnstr("Mango and Apple", "and",ft_strlen("Mango and Apple")));
 	printf("%s \n", ft_strnstr("A", "A", 2));
 	return (0);
 }
