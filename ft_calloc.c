@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 13:16:27 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/23 14:59:33 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/03/29 02:20:12 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,10 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
-	if (size == 0 || count == 0)
-	{
-		size = 1;
-		count = 1;
-	}
 	ptr = malloc(count * size);
-	if (ptr)
-		ft_bzero(ptr, count * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, count * size);
 	return (ptr);
 }
 

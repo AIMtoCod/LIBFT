@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:53:33 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/27 12:17:23 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/03/28 22:30:50 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_itoa(int n);
+char	**ft_split(char const *s, char c);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 11:34:52 by hkumbhan          #+#    #+#              #
-#    Updated: 2023/03/27 12:17:43 by hkumbhan         ###   ########.fr        #
+#    Updated: 2023/03/28 22:30:57 by hkumbhan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ SRCS = ft_strlen.c \
 		ft_strjoin.c \
 		ft_strtrim.c \
 		ft_itoa.c \
-		
+		ft_split.c \
 
 OBJS = $(SRCS:.c=.o)
 	

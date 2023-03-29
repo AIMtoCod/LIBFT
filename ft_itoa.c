@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 11:24:22 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/27 17:29:22 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:10:12 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_digitcount(int n)
 
 	count = 0;
 	if (n == 0)
-		count = 1;
+		return (1);
 	if (n < 0)
 		count++;
 	while (n != 0)
