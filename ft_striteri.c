@@ -1,46 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/18 14:31:13 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/31 16:50:43 by hkumbhan         ###   ########.fr       */
+/*   Created: 2023/03/29 13:40:43 by hkumbhan          #+#    #+#             */
+/*   Updated: 2023/03/29 16:22:08 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-void	ft_bzero(void *s, size_t n)
+/// @brief Applies the function f to all charcters in s
+/// @param s the string to iterate
+/// @param f the funcion to apply to each character
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char	*ptr;
-	size_t	i;
+	unsigned int	i;
 
-	ptr = s;
 	i = 0;
-	while (i < n)
+	while (s[i] != '\0')
 	{
-		ptr[i] = '\0';
+		f(i, &s[i]);
 		i++;
 	}
 }
 
-*/
-void	ft_bzero(void *s, size_t n)
+/*
+#include <stdio.h>
+
+void	ft_addindex(unsigned int i, char *c)
 {
-	ft_memset(s, 0, n);
+	*c = *c + 1;
 }
 
-/**/
-#include <stdio.h>
 int	main()
 {
-	char	str[50] = "Have a good day!";
-	printf("%s\n",str);
-	
-	ft_bzero(str + 4, 4);
-	printf("%s\n",str); 
-	return (0);
+	char	s[] = "Hello world!";
+	ft_striteri(s, ft_addindex);
+	printf("%s\n", s);
 }
+*/

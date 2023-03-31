@@ -1,44 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/23 13:16:27 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/30 17:36:07 by hkumbhan         ###   ########.fr       */
+/*   Created: 2023/03/29 11:46:08 by hkumbhan          #+#    #+#             */
+/*   Updated: 2023/03/30 21:42:08 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	void	*ptr;
+	size_t			i;
+	unsigned int	slen;
+	char			*dst;
 
-	if (count && (size * count) / count != size)
+	i = 0;
+	slen = ft_strlen(s);
+	dst = (char *)ft_calloc(slen + 1, sizeof(char));
+	if (!dst)
 		return (NULL);
-	ptr = malloc(count * size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	while (i < slen)
+	{
+		dst[i] = f(i, s[i]);
+		i++;
+	}
+	return (dst);
 }
 
 /*
-//#include <stdio.h>
+#include <stdio.h>
 
-//int	main()
-//{
-//	int	*str = (int *)ft_calloc(6, sizeof(char));
-//	//str = "Harsh";
-//	int	i = 0;
-//	while (i < 6)
-//	{
-//		str[i] = 2;
-//		printf("%d\n", str[i]);
-//		i++;		
-//	}
-//	free (str);
-//}
+char	ft_addone(unsigned int i, char c)
+{
+	return (c + 1);
+}
+
+int main()
+{
+	char const	*str = "Hello World";
+	printf("%s\n", ft_strmapi(str, ft_addone));
+}
 */

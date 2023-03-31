@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/23 13:16:27 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/30 17:36:07 by hkumbhan         ###   ########.fr       */
+/*   Created: 2023/03/31 11:13:25 by hkumbhan          #+#    #+#             */
+/*   Updated: 2023/03/31 15:13:43 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	void	*ptr;
+	t_list	*head;
+	t_list	*new_node;
 
-	if (count && (size * count) / count != size)
+	if (!lst || !f)
 		return (NULL);
-	ptr = malloc(count * size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	head = NULL;
+	while (lst)
+	{
+		new_node = ft_lstnew((*f)(lst->content));
+		if (!new_node)
+		{
+			ft_lstclear(&head, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&head, new_node);
+		lst = lst->next;
+	}
+	return (head);
 }
-
-/*
-//#include <stdio.h>
-
-//int	main()
-//{
-//	int	*str = (int *)ft_calloc(6, sizeof(char));
-//	//str = "Harsh";
-//	int	i = 0;
-//	while (i < 6)
-//	{
-//		str[i] = 2;
-//		printf("%d\n", str[i]);
-//		i++;		
-//	}
-//	free (str);
-//}
-*/

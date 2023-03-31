@@ -1,46 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/18 14:31:13 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/31 16:50:43 by hkumbhan         ###   ########.fr       */
+/*   Created: 2023/03/31 10:29:27 by hkumbhan          #+#    #+#             */
+/*   Updated: 2023/03/31 11:06:37 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-void	ft_bzero(void *s, size_t n)
+/// @brief This function delets the node lst and its succesions
+/// @param lst the start node
+/// @param del function that delets the content and free the node
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	char	*ptr;
-	size_t	i;
+	t_list	*temp;
 
-	ptr = s;
-	i = 0;
-	while (i < n)
+	while (*lst)
 	{
-		ptr[i] = '\0';
-		i++;
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
 	}
-}
-
-*/
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, 0, n);
-}
-
-/**/
-#include <stdio.h>
-int	main()
-{
-	char	str[50] = "Have a good day!";
-	printf("%s\n",str);
-	
-	ft_bzero(str + 4, 4);
-	printf("%s\n",str); 
-	return (0);
+	lst = NULL;
 }

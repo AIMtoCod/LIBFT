@@ -1,46 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/18 14:31:13 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/31 16:50:43 by hkumbhan         ###   ########.fr       */
+/*   Created: 2023/03/29 16:58:58 by hkumbhan          #+#    #+#             */
+/*   Updated: 2023/03/29 20:46:51 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-void	ft_bzero(void *s, size_t n)
+/// @brief Outputs the string s
+/// @param s the string to be output
+/// @param fd File descritor for write function
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*ptr;
-	size_t	i;
+	int	slen;
 
-	ptr = s;
-	i = 0;
-	while (i < n)
-	{
-		ptr[i] = '\0';
-		i++;
-	}
-}
-
-*/
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, 0, n);
-}
-
-/**/
-#include <stdio.h>
-int	main()
-{
-	char	str[50] = "Have a good day!";
-	printf("%s\n",str);
-	
-	ft_bzero(str + 4, 4);
-	printf("%s\n",str); 
-	return (0);
+	slen = ft_strlen(s);
+	write(fd, s, slen);
 }

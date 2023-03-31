@@ -1,46 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/18 14:31:13 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/31 16:50:43 by hkumbhan         ###   ########.fr       */
+/*   Created: 2023/03/31 10:03:37 by hkumbhan          #+#    #+#             */
+/*   Updated: 2023/03/31 10:26:11 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-void	ft_bzero(void *s, size_t n)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	char	*ptr;
-	size_t	i;
-
-	ptr = s;
-	i = 0;
-	while (i < n)
-	{
-		ptr[i] = '\0';
-		i++;
-	}
-}
-
-*/
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, 0, n);
-}
-
-/**/
-#include <stdio.h>
-int	main()
-{
-	char	str[50] = "Have a good day!";
-	printf("%s\n",str);
-	
-	ft_bzero(str + 4, 4);
-	printf("%s\n",str); 
-	return (0);
+	if (lst)
+		del(lst->content);
+	free(lst);
 }

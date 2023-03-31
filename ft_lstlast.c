@@ -1,44 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/23 13:16:27 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/30 17:36:07 by hkumbhan         ###   ########.fr       */
+/*   Created: 2023/03/30 21:28:32 by hkumbhan          #+#    #+#             */
+/*   Updated: 2023/03/31 09:52:22 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+/// @brief returns the last node in the list
+/// @param lst the head node or the starting node
+/// @return returns a pointer to the last node which is
+///         not null
+t_list	*ft_lstlast(t_list *lst)
 {
-	void	*ptr;
-
-	if (count && (size * count) / count != size)
+	if (lst == NULL)
 		return (NULL);
-	ptr = malloc(count * size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }
-
-/*
-//#include <stdio.h>
-
-//int	main()
-//{
-//	int	*str = (int *)ft_calloc(6, sizeof(char));
-//	//str = "Harsh";
-//	int	i = 0;
-//	while (i < 6)
-//	{
-//		str[i] = 2;
-//		printf("%d\n", str[i]);
-//		i++;		
-//	}
-//	free (str);
-//}
-*/

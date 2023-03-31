@@ -6,7 +6,7 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:29:37 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/29 02:33:00 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/03/30 14:51:45 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ char	**ft_split(char const *s, char c)
 	int		len;
 
 	i = 0;
+	if (s == NULL)
+		return (NULL);
 	len = ft_substrcount(s, c);
 	substr = (char **)ft_calloc((len + 1), sizeof(char *));
 	if (!substr)

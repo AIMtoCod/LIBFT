@@ -6,14 +6,14 @@
 #    By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 11:34:52 by hkumbhan          #+#    #+#              #
-#    Updated: 2023/03/28 22:30:57 by hkumbhan         ###   ########.fr        #
+#    Updated: 2023/03/31 15:44:13 by hkumbhan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = libft.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror 
 SRCS = ft_strlen.c \
 		ft_isalpha.c \
 		ft_isdigit.c \
@@ -42,22 +42,45 @@ SRCS = ft_strlen.c \
 		ft_strtrim.c \
 		ft_itoa.c \
 		ft_split.c \
+		ft_strmapi.c \
+		ft_striteri.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c 
 
-OBJS = $(SRCS:.c=.o)
+BONUS_SRCS = ft_lstnew.c \
+				ft_lstadd_front.c \
+				ft_lstsize.c \
+				ft_lstlast.c \
+				ft_lstadd_back.c \
+				ft_lstdelone.c \
+				ft_lstclear.c \
+				ft_lstiter.c \
+				ft_lstmap.c
+
+OBJS = $(SRCS:%.c=%.o)
+BONUS_OBJS = $(BONUS_SRCS:%.c=%.o)
 	
 all: $(NAME)
 
 $(NAME): $(OBJS) 
 	ar rcs $(NAME) $(OBJS)
 
-$(OBJS) : $(SRCS)
+$(OBJS): $(SRCS)
 	$(CC) -c $(CFLAGS) $(SRCS)
-	
+
+bonus: $(BONUS_OBJS) $(OBJS)
+	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+
+$(BONUS_OBJS): $(BONUS_SRCS)
+	$(CC) -c $(CFLAGS) $(BONUS_SRCS)
+
 clean:
-	rm	-f $(OBJS)
+	rm	-f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	rm -f $(NAME)
 	 	
 re: fclean all
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
