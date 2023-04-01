@@ -51,18 +51,22 @@ if [ -d "$DIR" ]; then
     echo "Checking files in $DIR..."
     for FILE in $FILES; do
         if [ ! -f "$DIR/$FILE" ]; then
-            MISSING_FILES="$MISSING_FILES $FILE"
+            MISSING_FILES+="$FILE"
         fi
     done
     if [ "$MISSING_FILES" != "" ]; then
 		printf "\033[31mMissing files found in $DIR\033[0m\n"
-        echo "The following files were not found in $DIR:"
+        printf "\033[35mThe following files were not found in $DIR:\033[0m\n\n"
         for file in $MISSING_FILES; do
             echo "- $file"
         done
+		printf "\n"
         exit 1
     else
-        printf "\033[32mAll files found in $DIR\033[0m"
+        echo -e "\033[32m╔══════════════════════════════════════════════════════════════════════════════╗"
+		echo -e "║                 🎉🥳 All files check passed! Congratulations! 🥳🎉                 ║"       
+		echo -e "╚══════════════════════════════════════════════════════════════════════════════╝\033[0m"
+
         exit 0
     fi
 else
