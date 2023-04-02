@@ -6,13 +6,16 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 14:51:34 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/21 17:39:44 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/04/02 23:29:50 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
+/// @brief Locates first occurence of (char c) in string c
+/// @param s The string to be searched for 
+/// @param c The character c
+/// @return Pointer to the located character or NULL if c doesnot appear in s
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*ptr;

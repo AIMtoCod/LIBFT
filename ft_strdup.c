@@ -6,14 +6,15 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 15:00:23 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/23 15:40:20 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/04/02 23:18:26 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
+/// @brief Copies string s1 to a sufficiently allocated memory
+/// @param s1 The strig to be copied 
+/// @return a pointer to the copied string
 char	*ft_strdup(const char *s1)
 {
 	int		len;
@@ -21,10 +22,10 @@ char	*ft_strdup(const char *s1)
 
 	len = ft_strlen(s1) + 1;
 	str = (char *)malloc(len);
+	if (!str)
+		return (NULL);
 	if (str)
-	{
 		ft_memcpy(str, s1, len);
-	}
 	return (str);
 }
 

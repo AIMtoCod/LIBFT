@@ -6,15 +6,15 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:40:43 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/29 16:22:08 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/04/02 23:03:43 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/// @brief Applies the function f to all charcters in s
+/// @brief Applies the function f to all characters in s and
 /// @param s the string to iterate
-/// @param f the funcion to apply to each character
+/// @param f the function to apply to each character
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;

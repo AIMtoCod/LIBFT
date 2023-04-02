@@ -6,12 +6,17 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:37:28 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/23 09:51:00 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/04/02 23:18:09 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/// @brief Fill a byte string with a byte value
+/// @param s String to fill with byte
+/// @param c value of the byte
+/// @param n number of bytes to be written
+/// @return first @param s
 void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*ptr;
@@ -26,17 +31,3 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-
-/*
-int main()
-{
-	char str[50] = "GeeksForGeeks is for programming geeks.";
-    printf("\nBefore memset(): %s\n", str);
-  
-    // Fill 8 characters starting from str[13] with '.'
-    ft_memset(str+15, '.', 8);
-  
-    printf("After memset():  %s", str);
-    return 0;
-}
-*/

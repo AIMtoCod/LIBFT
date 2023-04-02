@@ -6,25 +6,18 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 11:34:50 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/21 12:02:14 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/04/02 21:32:12 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+/// @brief Capitialises lower case alphabet
+/// @param c the character to capitalise
+/// @return Decimal value of the corresponding uppercase character
 int	ft_toupper(int c)
 {
 	if (c >= 97 && c <= 122)
 		return (c - 32);
 	return (c);
 }
-
-/*
-#include <stdio.h>
-#include <ctype.h>
-
-int main()
-{
-	printf("%c\n", ft_toupper('g'));
-	printf("%c\n", toupper('a'));
-	printf("%c\n", toupper('1'));
-}
-*/

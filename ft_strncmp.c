@@ -6,12 +6,18 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:44:52 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/23 09:51:51 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/04/02 23:39:18 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/// @brief compares the null-terminated strings s1 and s2
+///			compares no more than n characters
+/// @param s1 String 1
+/// @param s2 String 2
+/// @param n Max characters to be compared 
+/// @return Returns difference between the first indifferent characters 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;

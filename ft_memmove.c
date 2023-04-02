@@ -6,37 +6,21 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 12:21:25 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/23 09:50:57 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/04/02 22:15:02 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
-/*
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{
-	char	*temp;
-	size_t	i;
-
-	if (!dst && !src)
-		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		temp[i] = ((const char *)src)[i];
-		i++;
-	}
-	i = 0;
-	while (i < len)
-	{
-		((char *)dst)[i] = temp[i];
-		i++;
-	}
-	return (dst);
-}
-*/
-
+/// @brief Copies a block of memory from one location to another
+///		This function copies the specified number of bytes from the source 
+///		memory block to the destination memory block. Unlike memcpy(), 
+///		this function ensures that the memory blocks do not overlap by copying 
+///		the bytes in reverse order if necessary.
+/// @param dst A pointer to destination memory block
+/// @param src A pointer to source memory block
+/// @param len The number of bytes to copy
+/// @return A pointer to destination memory block
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	char		*d;
@@ -60,27 +44,3 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
-
-/*
-int	main()
-{
-	char dest[] = "Memmove vs Memcopy";
-   	char src[]  = "Memmove vs Memcopy";
-
-	printf("%s\n", dest);
-	printf("%s\n", ft_memmove(dest + 6, dest, 4));
-	printf("%s\n", memmove(src + 6, src, 4));
-	//printf("%s\n", dest);
-}
-
-
-int main(void)
-{
-	char dest[] = "Memmove vs Memcopy";
-   	//const char src[]  = "newstring";
-
-	printf("%s\n", dest);
-	printf("%s\n", ft_memmove(dest, dest + 6, 4));
-	return (0);
-}
-*/

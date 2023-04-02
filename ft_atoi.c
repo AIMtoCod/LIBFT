@@ -6,12 +6,17 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:24:04 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/23 09:52:33 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/04/02 16:07:41 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/// @brief Converts charcters to integers
+/// 		Inital whitespaces are not skipped
+///			Only either sign(+ || -) is allowed with occurence of once 
+/// @param str The string to be converted to integers
+/// @return return an integer 
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -36,16 +41,3 @@ int	ft_atoi(const char *str)
 	}
 	return (num * sign);
 }
-
-/*
-#include <stdio.h>
-int	main()
-{
-	printf("%d\n", ft_atoi(" ++2"));
-	printf("%d\n", ft_atoi(" 		-2"));
-	printf("%d\n", ft_atoi(" +2"));
-	printf("%d\n", ft_atoi(" gh325"));
-	printf("%d\n", ft_atoi(" 122"));
-	return (0);
-}
-*/

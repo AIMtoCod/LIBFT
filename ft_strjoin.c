@@ -6,12 +6,16 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 11:24:10 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/24 14:10:36 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/04/02 23:19:43 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/// @brief Concatenates strings s1 and s1
+/// @param s1 String one 
+/// @param s2 String 2
+/// @return Pointer to new string and NULL if allocation fails
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;

@@ -6,14 +6,18 @@
 #    By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 11:34:52 by hkumbhan          #+#    #+#              #
-#    Updated: 2023/03/31 15:44:13 by hkumbhan         ###   ########.fr        #
+#    Updated: 2023/04/02 21:15:18 by hkumbhan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
+# Set the name of the library
 NAME = libft.a
+
+# Set the compiler and compiler flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
+
+# Set the source files for the library
 SRCS = ft_strlen.c \
 		ft_isalpha.c \
 		ft_isdigit.c \
@@ -49,6 +53,7 @@ SRCS = ft_strlen.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c 
 
+# Set the source files for the library
 BONUS_SRCS = ft_lstnew.c \
 				ft_lstadd_front.c \
 				ft_lstsize.c \
@@ -59,22 +64,30 @@ BONUS_SRCS = ft_lstnew.c \
 				ft_lstiter.c \
 				ft_lstmap.c
 
+# Set the object files for mandatoru and bonus part of the libray 
 OBJS = $(SRCS:%.c=%.o)
 BONUS_OBJS = $(BONUS_SRCS:%.c=%.o)
-	
+
+# Define the "all" rule
 all: $(NAME)
 
+# Define the rule to create the library
+# Used Options
+# r : Insert the objs intot eh archive
+# c : Create the archive if it doesn't exist
+# s : Create an index for the archive
+# s option is an efficiency option helpful when 
+# linking programs with the library
 $(NAME): $(OBJS) 
-	ar rcs $(NAME) $(OBJS)
+	ar rcs $@ $<
 
-$(OBJS): $(SRCS)
-	$(CC) -c $(CFLAGS) $(SRCS)
-
+# Define the "bonus" rule
 bonus: $(BONUS_OBJS) $(OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+	ar rcs $(NAME) $^
 
-$(BONUS_OBJS): $(BONUS_SRCS)
-	$(CC) -c $(CFLAGS) $(BONUS_SRCS)
+# Define the rule to compile the source files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm	-f $(OBJS) $(BONUS_OBJS)
@@ -83,4 +96,6 @@ fclean: clean
 	rm -f $(NAME)
 	 	
 re: fclean all
+
+# Specify that these rules do not correspond to a file name
 .PHONY: all bonus clean fclean re

@@ -6,13 +6,18 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:29:37 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/30 14:51:45 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/04/02 22:10:08 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
+/// @brief Counts the number of substrings in a string delimited by a given 
+///   character  This function counts the number of substrings in the given  
+///   string that are delimited by the given character.
+/// @param str The string to search for substrings
+/// @param c The delimiter character. 
+/// @return The number of substrings in the string
 static int	ft_substrcount(const char *str, char c)
 {
 	int	i;
@@ -36,6 +41,13 @@ static int	ft_substrcount(const char *str, char c)
 	return (count);
 }
 
+/// @brief This function finds the next substring in the given string that is 
+///     delimited by the given character, The string pointer is updated to
+///     point to the next character after the delimiter.
+/// @param str A pointer to a pointer to the string to search for substrings.
+/// @param c The delimiter character
+/// @return A newly allocated string representing the next substring 
+///           in the string, or NULL if there are no more substrings.
 static char	*ft_nextsubstr(char const **str, char c)
 {
 	unsigned int	len;
@@ -53,6 +65,9 @@ static char	*ft_nextsubstr(char const **str, char c)
 	return (dststr);
 }
 
+/// @brief This function frees the memory allocated for an array of strings
+/// @param s The array of strings to free
+/// @param i Index of the last string in the array
 static void	ft_free(char **s, int i)
 {
 	while (i >= 0)
@@ -63,6 +78,11 @@ static void	ft_free(char **s, int i)
 	free(s);
 }
 
+/// @brief Splits a string into substring delimited by a character
+/// @param s The string to split
+/// @param c The delimiter character
+/// @return An array of newly allocated strings representing the substrings  
+/// in the string, or NULL if the string is NULL or memory allocation fails.
 char	**ft_split(char const *s, char c)
 {
 	char	**substr;

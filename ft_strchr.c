@@ -6,10 +6,16 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 12:07:02 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/21 16:28:11 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/04/02 23:06:58 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+/// @brief Locates the first occurence of c in the string s
+/// @param s The string to be searched for c
+/// @param c The character c to be searched for
+/// @return Pointer to the located character or NULL if c doesnt appear
 char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
@@ -20,10 +26,5 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (*s == (char) c)
 		return ((char *)s);
-	return (0);
+	return (NULL);
 }
-
-//int main()
-//{
-//	printf("%s\n", ft_strrchr("Harsh is Smart", 'i'));
-//}

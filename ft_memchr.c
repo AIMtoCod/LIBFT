@@ -6,38 +6,29 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 09:09:09 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/23 09:50:32 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/04/02 23:17:15 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
+/// @brief Locates the first occurence of c (converted to unsigned char) in s
+/// @param s The string to check the occurence
+/// @param c Check character
+/// @param n Number of bytes to be checked for occurence of c in s
+/// @return pointer to the byte locater of NULL if no such byte exists within n 
+///			bytes
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	char	*str;
 
 	str = (char *)s;
-	if (n != 0)
+	while (n != 0)
 	{
-		while (n != 0)
-		{
-			if (*str == (char) c)
-				return (str);
-			str++;
-			n--;
-		}
+		if (*str == (char) c)
+			return (str);
+		str++;
+		n--;
 	}
-	return (0);
+	return (NULL);
 }
-
-/*
-#include <string.h>
-
-int	main()
-{
-	printf("%s \n", ft_memchr("Mango apple Pineapple", '\0', 0));
-	printf("%s \n", memchr("Mango apple Pineapple", '\0', 0));
-	return (0);
-}
-*/

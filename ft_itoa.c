@@ -6,14 +6,17 @@
 /*   By: hkumbhan <hkumbhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 11:24:22 by hkumbhan          #+#    #+#             */
-/*   Updated: 2023/03/28 11:10:12 by hkumbhan         ###   ########.fr       */
+/*   Updated: 2023/04/02 16:42:59 by hkumbhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
+/// @brief Counts the number of digits in an integer, which is equal to the
+/// number of characters required to store the integer including the sign
+/// @param n Integer for which digits are counted
+/// @return An integer representing the number of bytes (including sign) needed
+/// to store the integer.
 static int	ft_digitcount(int n)
 {
 	int	count;
@@ -31,6 +34,10 @@ static int	ft_digitcount(int n)
 	return (count);
 }
 
+/// @brief Converts an integer to string
+/// @param n The integer to convert	
+/// @return A newly allocated string representing the given integer.
+/// The string must be freed by the caller.
 char	*ft_itoa(int n)
 {
 	char			*str;
