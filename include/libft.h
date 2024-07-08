@@ -6,7 +6,7 @@
 /*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:36:18 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/07/05 21:09:53 by harsh            ###   ########.fr       */
+/*   Updated: 2024/07/09 01:28:57 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,18 +79,21 @@ char	*ft_strdup(const char *s1);
 // Conversion functions
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
+long	ft_atol(const char *str);
 
 // String splitting function
 char	**ft_split(char const *s, char c);
+char	**ft_split_pipex(char const *s, char c);
 
-// Output functions
+// io functions
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
-// Bitwise operation function
+// Utils function
 void	ft_print_bits(int nb);
+void	free_arr(char	**arr);
 
 // Linked list functions
 t_list	*ft_lstnew(void	*content);
@@ -102,27 +105,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
-// Helper functions for GET NEXT LINE project
-
-char	*get_next_line(int fd);
-char	*ft_read_file(int fd, char *stash);
-char	*ft_get_line(char *stash);
-char	*ft_update_stash(char *stash);
-char	*ft_strchr_gnl(char *s, int c);
-char	*ft_strjoin_gnl(char *s1, char *s2);
-size_t	ft_strlen_gnl(char *s);
-void	*ft_memcpy_gnl(void *dst, void *src, size_t n);
-
-// Helper functions for PRINTF project 
-
-int		ft_printf(const char *format, ...);
-int		ft_formattype(char c, va_list ap, int *i);
-int		ft_putchar(char c);
-int		ft_strlen_printf(char *s);
-int		ft_putstr(char *s);
-int		ft_putnbr(long n);
-int		ft_putptr(size_t n);
-int		ft_puthex(size_t n, char *base);
 
 #endif
