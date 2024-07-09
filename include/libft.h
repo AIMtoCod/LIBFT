@@ -6,7 +6,7 @@
 /*   By: harsh <harsh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:36:18 by hkumbhan          #+#    #+#             */
-/*   Updated: 2024/07/09 15:54:14 by harsh            ###   ########.fr       */
+/*   Updated: 2024/07/09 18:48:28 by harsh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 // Dynamic memory allocation functions
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
+char	*ft_strndup(const char *str, size_t n);
 
 // Conversion functions
 int		ft_atoi(const char *str);
